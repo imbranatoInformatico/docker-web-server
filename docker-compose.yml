@@ -1,0 +1,36 @@
+version: '3.1'
+services:
+
+  php-apache:
+    container_name: php-apache
+    image: php:8.0-apache
+    volumes:
+      - ../dockerPhp:/var/www/html/
+    ports:
+      - 8000:80
+    
+  db:
+    container_name: mysqlDatabase
+    platform: linux/amd64 
+    image: mysql:5.7
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+  
+  phpMyAdmin:
+    container_name: phpMyAdmin
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: dario
+      MYSQL_PASSWORD: root
+
+  
+
+   
