@@ -11,4 +11,11 @@ Questo file compose di docker contiene tre immagini (servizi), per creare un amb
 
 # come faccio a far partire questo compose file di docker ?
 
-Per far partire questo compose, basta andare nella posizione del file e lanciare il comando **docker-compose up
+Per far partire questo compose, basta andare nella posizione del file e lanciare il comando **docker-compose up**
+
+# quali sono le ports  ?
+
+apache -> 8000:80
+mysql  -> 3306:3306
+phpMyAdmin -> 8080:80
+
