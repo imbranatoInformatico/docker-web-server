@@ -1,11 +1,17 @@
 version: '3.1'
 services:
 
-  php-apache:
+  php-apache:   
+    ## Grazie a build posso collegare al docker compose un dockerfiles.
+    ## con il context gli dico dove prendere il Dockerfile. Mettendo il . (punto) dico a docker di prenderlo nella
+    ## stessa cartella dove risiede docker-compose.yml
+    ## in questo caso ho aggiunto un Dockerfile per aggiunger il modulo pdo_mysql a php 
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: php-apache
-    image: php:8.0-apache
     volumes:
-      - ../dockerPhp:/var/www/html/
+      - ../dockerPhp:/var/www/html/ 
     ports:
       - 8000:80
     
@@ -19,6 +25,8 @@ services:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ../dockerMysql:/var/lib/mysql
   
   phpMyAdmin:
     container_name: phpMyAdmin
