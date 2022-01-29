@@ -5,7 +5,7 @@ services:
     ## Grazie a build posso collegare al docker compose un dockerfiles.
     ## con il context gli dico dove prendere il Dockerfile. Mettendo il . (punto) dico a docker di prenderlo nella
     ## stessa cartella dove risiede docker-compose.yml
-    ## in questo caso ho aggiunto un Dockerfile per aggiunger il modulo pdo_mysql a php 
+    ## in questo caso ho aggiunto un Dockerfile per aggiunger il modulo pdo_mysql a php .
     build:
       context: .
       dockerfile: Dockerfile
